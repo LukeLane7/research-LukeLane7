@@ -5,17 +5,17 @@
 <body>
     <h1>Register as Player</h1>
 
-    <form id="'playerForm">
+    <form id="playerForm" onsubmit="submitForm(event)">
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="'firstName" required>
+        <input type="text" id="firstName" required>
 
-        <label for="lastName">First Name:</label>
-        <input type="text" id="lastName" name="'lastName" required>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required>
 
         <button type="submit">Submit</button>
     </form>
 
-    <p id="result"></p>
+    <p id="resultMessage"></p>
 
     <script src="/formHandler.js"></script>
 </body>

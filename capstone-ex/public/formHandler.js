@@ -1,16 +1,25 @@
-const form = document.getElementById('playerForm');
+async function submitForm(event) {
+    event.preventDefault();
 
-const firstName = documet.getElementById('firstName').value;
-const lastName = documet.getElementById('lastName').value;
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
 
-const response = await fetch('/register-player', {
-    method: 'POST',
-    headers: {
-        'Content': 'application/json'
-    },
-});
+    try{
 
-const result = await response.json();
+        const response = await fetch('/register-player', {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ firstName, lastName}),
+        });
 
-const message = document.getElementById('result');
-message.textContent = result.message;
+        const result = await response.json();
+
+        document.getElementById('resultMessage').textContent = result.message;
+    // const message = document.getElementById('result');
+    // message.textContent = result.message;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
